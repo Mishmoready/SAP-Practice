@@ -1,0 +1,34 @@
+{
+    "outofstock": [
+      {
+        "Category": "Bakery",
+        "Revenue": 12000,
+        "Cost": 7000,
+        "Consumption": 1500
+      },
+      {
+        "Category": "Chilled",
+        "Revenue": 8000,
+        "Cost": 3000,
+        "Consumption": 500
+      },
+      {
+        "Category": "Frozen",
+        "Revenue": 5000,
+        "Cost": 2000,
+        "Consumption": 300
+      },
+      {
+        "Category": "Meats",
+        "Revenue": 6000,
+        "Cost": 2500,
+        "Consumption": 400
+      },
+      {
+        "Category": "Dairy",
+        "Revenue": 4000,
+        "Cost": 1500,
+        "Consumption": 200
+      }
+    ]
+  }

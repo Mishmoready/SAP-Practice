@@ -1,0 +1,12 @@
+html[dir="ltr"] .ShReReStyle .myCustomButton.sapMBtn {
+    margin-right: 0.125rem;
+}
+
+html[dir="rtl"] .ShReReStyle .myCustomButton.sapMBtn {
+    margin-left: 0.125rem;
+}
+
+.ShReReStyle .myCustomText {
+    display: inline-block;
+    font-weight: bold;
+}

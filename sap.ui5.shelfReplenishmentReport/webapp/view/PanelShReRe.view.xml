@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="sap.ui5.shelfReplenishmentReport.controller.PanelShReRe"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <Panel
+        headerText="{i18n>appPanelTitle}"
+        class="sapUiResponsiveMargin"
+        width="auto"
+    >
+        <content>
+            <Button
+                id="gapDialogButton"
+                icon="sap-icon://world"
+                text="{i18n>gapDialogButtonText}"
+                press=".onOpenDialog"
+                class="sapUiSmallMarginEnd"
+            />
+            <Button
+                text="{i18n>showHelloButtonText}"
+                press=".onShowHello"
+                class="myCustomButton"
+            />
+            <Input
+                value="{/recipient/name}"
+                description="{/recipient/name}"
+                valueLiveUpdate="true"
+                width="60%"
+            />
+            <FormattedText
+                htmlText="{/recipient/name}"
+                class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
+            />
+        </content>
+    </Panel>
+</mvc:View>

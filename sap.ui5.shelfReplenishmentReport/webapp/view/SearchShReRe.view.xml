@@ -1,0 +1,23 @@
+<mvc:View
+    controllerName="sap.ui5.shelfReplenishmentReport.controller.SearchShReRe"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <Bar>
+        <contentLeft>
+            <!-- Title as a Label -->
+            <Label
+                text="{i18n>appTitle}"
+                class="sapMTitle sapMTitleSizeH1"
+            />
+        </contentLeft>
+        <contentMiddle>
+            <!-- Search Field -->
+            <SearchField
+                width="100%"
+                search=".onSearch"
+                class="sapUiLargeMarginBegin"
+            />
+        </contentMiddle>
+    </Bar>
+</mvc:View>

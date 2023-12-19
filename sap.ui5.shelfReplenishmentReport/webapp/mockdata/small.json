@@ -1,0 +1,16 @@
+{
+    "outofstock": [
+      {
+        "Category": "Out of Stock",
+        "Revenue": 12000,
+        "Cost": 7000,
+        "Consumption": 1500
+      },
+      {
+        "Category": "Not Filled",
+        "Revenue": 8000,
+        "Cost": 3000,
+        "Consumption": 500
+      }
+    ]
+  }

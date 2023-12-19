@@ -1,0 +1,11 @@
+specVersion: '3.0'
+metadata:
+  name: sap-suite-ui-microchart-sample--interactive-donut-chart
+type: application
+framework:
+  name: SAPUI5
+  version: '1.119.1'
+  libraries:
+    - name: themelib_sap_horizon
+    - name: sap.m
+    - name: sap.suite.ui.microchart

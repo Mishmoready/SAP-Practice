@@ -1,0 +1,112 @@
+<mvc:View
+	controllerName="sap.ui.demo.fiori2.controller.Master"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:microchart="sap.suite.ui.microchart"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:uxap="sap.uxap"
+	xmlns:table="sap.ui.table">
+	<f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Products ({products>/ProductCollectionStats/Counts/Total})"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+
+		<!-- DynamicPage Content -->
+		<f:content>
+			<VBox fitContainer="true">
+				<OverflowToolbar class="sapFDynamicPageAlignContent">
+					<ToolbarSpacer/>
+					<SearchField search=".onSearch" width="17.5rem"/>
+					<OverflowToolbarButton icon="sap-icon://add" text="Add" type="Transparent" press=".onAdd"/>
+					<OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/>
+				</OverflowToolbar>
+				<Table
+					id="productsTable"
+					inset="false"
+					items="{
+						path: 'products>/ProductCollection',
+						sorter: {
+							path: 'Name'
+						}
+					}"
+					class="sapFDynamicPageAlignContent"
+					width="auto">
+					<columns>
+						<Column width="12em">
+							<Text text="Article"/>
+						</Column>
+						<Column>
+							<Text text="Gap Buster"/>
+						</Column>
+						<Column>
+							<Text text="Status"/>
+						</Column>
+						<Column	hAlign="End">
+							<Text text="SOH"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem type="Navigation" press=".onListItemPress">
+							<cells>
+								<ObjectIdentifier title="{products>Name}" text="Product ID {products>ProductId}"/>
+				<microchart:AreaMicroChart size="Auto" height="60px" width="100px" minXValue="0" maxXValue="100" minYValue="0" maxYValue="100" class="sapUiSmallMargin" press="press">
+		<microchart:firstXLabel>
+			<microchart:AreaMicroChartLabel label="June 1" color="Good"/>
+		</microchart:firstXLabel>
+		<microchart:lastXLabel>
+			<microchart:AreaMicroChartLabel label="June 30" color="Critical"/>
+		</microchart:lastXLabel>
+		<microchart:firstYLabel>
+			<microchart:AreaMicroChartLabel label="0M" color="Good"/>
+		</microchart:firstYLabel>
+		<microchart:lastYLabel>
+			<microchart:AreaMicroChartLabel label="80M" color="Critical"/>
+		</microchart:lastYLabel>
+		<microchart:chart>
+			<microchart:AreaMicroChartItem>
+				<microchart:points>
+					<microchart:AreaMicroChartPoint x="{products>X1}" y="{products>Y1}" />
+					<microchart:AreaMicroChartPoint x="{products>X2}" y="{products>Y2}" />
+					<microchart:AreaMicroChartPoint x="{products>X3}" y="{products>Y3}" />
+					<microchart:AreaMicroChartPoint x="{products>X4}" y="{products>Y4}" />
+				</microchart:points>
+			</microchart:AreaMicroChartItem>
+		</microchart:chart>
+			</microchart:AreaMicroChart>
+		<ObjectStatus
+			class="sapUiSmallMarginBottom"
+			text="{products>Status}"
+			inverted="true"
+			state="None" />
+								<ObjectNumber
+									number="{
+										parts:[
+											{path:'products>SOH'}											
+										],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+									}"
+									/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</f:content>
+
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

@@ -1,0 +1,102 @@
+{
+    "_version": "1.1.0",
+    "start_url": "<startUrl>",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "sap.ui5.shelfReplenishmentReport.view.Pie",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "tags": {
+            "keywords": [
+                "{{<keyword1>}}", "{{<keyword2>}}"
+            ]
+        },
+        "dataSources": {}
+    },
+    "sap.ui": {
+        "_version": "1.1.0",
+        "icons": {
+            "icon": "<icon>",
+            "favIcon": "<favIcon>",
+            "phone": "<phone>",
+            "phone@2": "<phone@2>",
+            "tablet": "<tablet>",
+            "tablet@2": "<tablet@2>"
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_bluecrystal"
+        ]
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "rootView": {
+            "viewName": "sap.ui5.shelfReplenishmentReport.view.Pie",
+            "type": "XML",
+            "async": true
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                },
+                {
+                    "uri": "./css/exploredStyle.css"
+                }
+            ]
+        },
+        "dependencies": {
+            "minUI5Version": "1.60",
+            "libs": {
+                "sap.m": {},
+                "sap.viz": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.ui5.shelfReplenishmentReport.i18n.i18n",
+                    "supportedLocales": [""],
+                    "fallbackLocale": ""
+                }
+            }
+        },
+        "config": {
+            "sample": {
+                "stretch": true,
+                "files": [
+                    "Pie.view.xml",
+                    "Pie.controller.js",
+                    "InitPage.js",
+                    "manifest.json"
+                ]
+            }
+        },
+        "rootView": {
+            "viewName": "sap.ui5.shelfReplenishmentReport.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        }
+    },
+    "sap.platform.abap": {
+        "_version": "1.1.0",
+        "uri": "<uri>"
+    },
+    "sap.platform.hcp": {
+        "_version": "1.1.0",
+        "uri": "<uri>"
+    }
+}

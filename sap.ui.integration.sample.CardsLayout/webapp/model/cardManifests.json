@@ -1,0 +1,652 @@
+{
+	"stackedColumn": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.Analytical",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Analytical",
+			"header": {
+				"type": "Numeric",
+				"data": {
+					"json": {
+						"n": "56",
+						"u": "%",
+						"trend": "Up",
+						"valueColor": "Good"
+					}
+				},
+				"title": "Gaps By Aisle"
+			},
+			"content": {
+				"chartType": "StackedColumn",
+				"chartProperties": {
+					"legendGroup": {
+						"position": "bottom",
+						"alignment": "topLeft"
+					},
+					"plotArea": {
+						"dataLabel": {
+							"visible": false,
+							"showTotal": true
+						}
+					},
+					"categoryAxis": {
+						"title": {
+							"visible": false
+						}
+					},
+					"valueAxis": {
+						"title": {
+							"visible": false
+						}
+					},
+					"title": {
+						"visible": false
+					}
+				},
+				"data": {
+					"request": {
+						"url": "./mockdata/data.json"
+					}
+				},
+				"popover": {
+					"active": true
+				},
+				"dimensions": [
+					{
+						"name": "Weeks",
+						"value": "{Week}"
+					}
+				],
+				"measures": [
+					{
+						"name": "Not Filled",
+						"value": "{Not Filled}"
+					},
+					{
+						"name": "OOS",
+						"value": "{OOS}"
+					}
+				],
+				"feeds": [
+					{
+						"type": "Dimension",
+						"uid": "categoryAxis",
+						"values": [
+							"Weeks"
+						]
+					},
+					{
+						"type": "Measure",
+						"uid": "valueAxis",
+						"values": [
+							"Not Filled",
+							"OOS"
+						]
+					}
+				]
+			}
+		}
+	},
+	"donut": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.donut",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Analytical",
+			"header": {
+				"title": "Gaps by Department",
+				"icon": {
+					"url": "https://www.google.com"
+				}
+			},
+			"content": {
+				"chartType": "Donut",
+				"legend": {
+					"visible": true,
+					"position": "Bottom",
+					"alignment": "Left"
+				},
+				"plotArea": {
+					"dataLabel": {
+						"visible": true,
+						"showTotal": true
+					}
+				},
+				"title": {
+					"visible": false
+				},
+				"measureAxis": "size",
+				"dimensionAxis": "color",
+				"data": {
+					"json": {
+						"measures": [
+							{
+								"measureName": "Grocery",
+								"value": 50
+							},
+							{
+								"measureName": "Bakery",
+								"value": 25
+							},
+							{
+								"measureName": "Frozen",
+								"value": 15
+							},
+							{
+								"measureName": "Fresh",
+								"value": 10
+							}
+						]
+					},
+					"path": "/measures"
+				},
+				"item": {
+					"title": "{title}",
+					"actions": [
+						{
+							"type": "Navigation",
+							"parameters": {
+								"url": "{Link}"
+							}
+						}
+					]
+				},
+				"dimensions": [
+					{
+						"label": "Measure Name",
+						"value": "{measureName}"
+					}
+				],
+				"measures": [
+					{
+						"label": "Value",
+						"value": "{value}"
+					}
+				]
+			}
+		}
+	},
+	"component": "./componentCard/manifest.json",
+	"list2": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.list2",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Object",
+			"header": {
+				"title": "Comparison Out of Stock vs Not filled"
+			},
+			"content": {
+				"groups": [
+					{
+						"title": "",
+						"items": [
+							{
+								"label": "",
+								"type": "Image",
+								"src": "./componentCard/PieChartSampleNoLegend.PNG"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	"table": {
+		"_version": "1.15.0",
+		"sap.app": {
+			"id": "card.explorer.table.card",
+			"type": "card",
+			"title": "Sample of a Table Card",
+			"subTitle": "Sample of a Table Card",
+			"applicationVersion": {
+				"version": "1.0.0"
+			},
+			"shortTitle": "A short title for this Card",
+			"info": "Additional information about this Card",
+			"description": "A long description for this Card",
+			"tags": {
+				"keywords": [
+					"Table",
+					"Card",
+					"Sample"
+				]
+			}
+		},
+		"sap.ui": {
+			"technology": "UI5",
+			"icons": {
+				"icon": "sap-icon://table-view"
+			}
+		},
+		"sap.card": {
+			"type": "Table",
+			"data": {
+				"request": {
+					"url": "./mockdata/products.json"
+				}
+			},
+			"header": {
+				"title": "Top 5 Critical Articles",
+				"subTitle": "Today"
+			},
+			"content": {
+				"maxItems": 9,
+				"row": {
+					"columns": [
+						{
+							"title": "Article Description",
+							"value": "{product}",
+							"additionalText": "{salesOrder}",
+							"identifier": true
+						},
+						{
+							"title": "Supplier",
+							"value": "{customerName}"
+						},
+						{
+							"title": "Last Sold Date",
+							"value": "{netAmount}",
+							"hAlign": "End"
+						},
+						{
+							"title": "Stock On Hand",
+							"value": "{status}",
+							"state": "{statusState}"
+						},
+						{
+							"title": "Delivery Progress",
+							"progressIndicator": {
+								"percent": "{deliveryProgress}",
+								"text": "{= format.percent(${deliveryProgress} / 100)}",
+								"state": "{statusState}"
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	"timeline": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.timeline",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Timeline",
+			"header": {
+				"title": "Schedule for today",
+				"subTitle": "9:32 AM",
+				"status": {
+					"text": "3 of 3"
+				},
+				"actions": [
+					{
+						"type": "Navigation",
+						"parameters": {
+							"url": "/quickLinks"
+						}
+					}
+				]
+			},
+			"content": {
+				"data": {
+					"json": [
+						{
+							"Title": "Call Donna Mendez",
+							"Icon": "sap-icon://outgoing-call",
+							"Time": "9:15 AM"
+						},
+						{
+							"Title": "Incidents Status - Online",
+							"Icon": "sap-icon://my-view",
+							"Time": "10:00 - 11:00"
+						},
+						{
+							"Title": "Site Visit - Peach Valley",
+							"Description": "San Joaquin valley",
+							"Icon": "sap-icon://appointment-2",
+							"Time": "12:00 - 17:00"
+						}
+					]
+				},
+				"item": {
+					"dateTime": {
+						"value": "{Time}"
+					},
+					"description": {
+						"value": "{Description}"
+					},
+					"title": {
+						"value": "{Title}"
+					},
+					"icon": {
+						"src": "{Icon}"
+					}
+				}
+			}
+		}
+	},
+	"calendar": {
+		"sap.app": {
+			"id": "sample.CardsLayout.model.calendar",
+			"type": "card"
+		},
+		"sap.card": {
+			"type": "Calendar",
+			"data": {
+				"json": {
+					"item": [
+						{
+							"visualization": "blocker",
+							"start": "2019-09-02T09:00",
+							"end": "2019-09-02T10:00",
+							"title": "Payment reminder",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type06"
+						},
+						{
+							"visualization": "blocker",
+							"start": "2019-09-02T17:00",
+							"end": "2019-09-02T17:30",
+							"title": "Private appointment",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type07"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-02T12:00",
+							"end": "2019-09-02T13:00",
+							"title": "Lunch",
+							"text": "working",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type03"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-01T08:30",
+							"end": "2019-09-03T17:30",
+							"title": "Workshop",
+							"text": "Out of office",
+							"icon": "sap-icon://sap-ui5",
+							"type": "Type07"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-02T14:00",
+							"end": "2019-09-02T16:30",
+							"title": "Discussion with clients",
+							"text": "working",
+							"icon": "sap-icon://desktop-mobile"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-02T11:00",
+							"end": "2019-09-02T12:00",
+							"title": "Team meeting",
+							"text": "online meeting",
+							"icon": "sap-icon://sap-ui5",
+							"type": "Type04"
+						},
+						{
+							"visualization": "blocker",
+							"start": "2019-09-03T17:00",
+							"end": "2019-09-03T17:30",
+							"title": "Private appointment",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type07"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-03T12:00",
+							"end": "2019-09-03T13:00",
+							"title": "Lunch",
+							"text": "working",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type03"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-03T10:00",
+							"end": "2019-09-03T12:30",
+							"title": "Board meeting",
+							"icon": "sap-icon://desktop-mobile"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-04T12:00",
+							"end": "2019-09-04T13:00",
+							"title": "Lunch",
+							"text": "working",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type03"
+						},
+						{
+							"visualization": "blocker",
+							"start": "2019-09-04T17:00",
+							"end": "2019-09-04T17:30",
+							"title": "Private appointment",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type07"
+						},
+						{
+							"visualization": "appointment",
+							"start": "2019-09-05T11:00",
+							"end": "2019-09-05T12:00",
+							"title": "Team meeting",
+							"text": "online meeting",
+							"icon": "sap-icon://sap-ui5",
+							"type": "Type04"
+						},
+						{
+							"visualization": "blocker",
+							"start": "2019-09-06T09:00",
+							"end": "2019-09-06T10:00",
+							"title": "Payment reminder",
+							"icon": "sap-icon://desktop-mobile",
+							"type": "Type06"
+						}
+					],
+					"specialDate": [
+						{
+							"start": "2019-09-13",
+							"end": "2019-09-14",
+							"type": "Type08"
+						},
+						{
+							"start": "2019-09-24",
+							"end": "2019-09-24",
+							"type": "Type13"
+						}
+					],
+					"legendItem": [
+						{
+							"category": "calendar",
+							"text": "Team building",
+							"type": "Type08"
+						},
+						{
+							"category": "calendar",
+							"text": "Public holliday",
+							"type": "Type13"
+						},
+						{
+							"category": "appointment",
+							"text": "Reminder",
+							"type": "Type06"
+						},
+						{
+							"category": "appointment",
+							"text": "Private appointment",
+							"type": "Type07"
+						},
+						{
+							"category": "appointment",
+							"text": "Out of office",
+							"type": "Type03"
+						},
+						{
+							"category": "appointment",
+							"text": "Collaboration with other team members",
+							"type": "Type07"
+						}
+					]
+				}
+			},
+			"header": {
+				"title": "My calendar",
+				"subTitle": "Team Balkan",
+				"status": {
+					"text": {
+						"format": {
+							"translationKey": "i18n>CARD.COUNT_X_OF_Y",
+							"parts": [
+								"parameters>/visibleItems",
+								"parameters>/allItems"
+							]
+						}
+					}
+				}
+			},
+			"content": {
+				"date": "2019-09-02",
+				"maxItems": 5,
+				"maxLegendItems": 3,
+				"noItemsText": "You have nothing planned for that day",
+				"item": {
+					"template": {
+						"visualization": "{visualization}",
+						"startDate": "{start}",
+						"endDate": "{end}",
+						"title": "{title}",
+						"text": "{text}",
+						"icon": "{icon}",
+						"type": "{type}"
+					},
+					"path": "/item"
+				},
+				"specialDate": {
+					"template": {
+						"startDate": "{start}",
+						"endDate": "{end}",
+						"type": "{type}"
+					},
+					"path": "/specialDate"
+				},
+				"legendItem": {
+					"template": {
+						"category": "{category}",
+						"text": "{text}",
+						"type": "{type}"
+					},
+					"path": "/legendItem"
+				},
+				"moreItems": {
+					"actions": [
+						{
+							"type": "Navigation",
+							"enabled": true,
+							"url": "http://sap.com"
+						}
+					]
+				}
+			}
+		}
+	},
+	"filter": {
+		"sap.app": {
+			"id": "card.explorer.filters.dynamicFilter",
+			"type": "card",
+			"title": "Sample of Card with Filters"
+		},
+		"sap.card": {
+			"configuration": {
+				"filters": {
+					"shipper": {
+						"type": "Select",
+						"label": "Shipper",
+						"item": {
+							"path": "/value",
+							"template": {
+								"key": "{ShipperID}",
+								"title": "{CompanyName}"
+							}
+						},
+						"data": {
+							"request": {
+								"url": "{{destinations.Northwind_V4}}/Shippers"
+							}
+						},
+						"options": [
+							"date",
+							"today",
+							"dateRange",
+							"from",
+							"to",
+							"lastDays",
+							"nextDays",
+							"lastWeeks",
+							"nextWeeks"
+						],
+						"selectedOptions": [],
+						"value": "{parameters>/selectedShipperID/value}"
+					}
+				},
+				"destinations": {
+					"Northwind_V4": {
+						"name": "Northwind_V4",
+						"label": "Northwind V4 Service URL",
+						"defaultUrl": "https://services.odata.org/V4/Northwind/Northwind.svc"
+					}
+				},
+				"parameters": {
+					"maxOrdersShown": {
+						"value": 6
+					},
+					"selectedShipperID": {
+						"value": 3
+					}
+				}
+			},
+			"data": {
+				"request": {
+					"url": "{{destinations.Northwind_V4}}/Orders",
+					"parameters": {
+						"$top": "{parameters>/maxOrdersShown/value}",
+						"$filter": "Shipper/ShipperID eq {filters>/shipper/value}"
+					}
+				},
+				"path": "/value/"
+			},
+			"type": "List",
+			"header": {
+				"title": "Orders by Shipper {filters>/shipper/selectedItem/title}",
+				"icon": {
+					"src": "sap-icon://product"
+				}
+			},
+			"content": {
+				"item": {
+					"title": "{ShipName}",
+					"description": "{ShipAddress}",
+					"info": {
+						"value": "{ShipCountry}"
+					},
+					"actions": [
+						{
+							"type": "Navigation",
+							"parameters": {
+								"url": "./?OrderID={OrderID}&ShipperID={filters>/shipper/value}"
+							}
+						}
+					]
+				},
+				"maxItems": "{parameters>/maxOrdersShown/value}"
+			}
+		}
+	}
+}

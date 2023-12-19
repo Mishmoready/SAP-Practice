@@ -1,0 +1,380 @@
+<mvc:View
+    controllerName="sap.ui.demo.fiori2.controller.Detail"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:microchart="sap.suite.ui.microchart"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false"
+    >
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:Title
+                        text="{products>Name}"
+                        wrapping="true"
+                        class="sapUiSmallMarginEnd"
+                    />
+                </expandedHeading>
+
+                <snappedHeading>
+                    <m:FlexBox
+                        wrap="Wrap"
+                        fitContainer="true"
+                        alignItems="Center"
+                    >
+                        <m:FlexBox
+                            wrap="NoWrap"
+                            fitContainer="true"
+                            alignItems="Center"
+                            class="sapUiTinyMarginEnd"
+                        >
+                            <f:Avatar
+                                src="https://sdk.openui5.org/{products>ProductPicUrl}"
+                                displaySize="S"
+                                displayShape="Square"
+                                class="sapUiTinyMarginEnd"
+                            />
+                            <m:Title
+                                text="{products>Name}"
+                                wrapping="true"
+                            />
+                        </m:FlexBox>
+                    </m:FlexBox>
+                </snappedHeading>
+
+                <actions>
+                    <m:ToggleButton
+                        text="Edit"
+                        type="Emphasized"
+                        press=".onEditToggleButtonPress"
+                    />
+                    <m:Button
+                        text="Delete"
+                        type="Transparent"
+                    />
+                    <m:Button
+                        text="Copy"
+                        type="Transparent"
+                    />
+                    <m:Button
+                        icon="sap-icon://decline"
+                        type="Transparent"
+                    />
+                </actions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <headerContent>
+            <m:FlexBox
+                wrap="Wrap"
+                fitContainer="true"
+                alignItems="Stretch"
+            >
+                <f:Avatar
+                    src="https://sdk.openui5.org/{products>ProductPicUrl}"
+                    displaySize="L"
+                    displayShape="Square"
+                    class="sapUiTinyMarginEnd"
+                />
+                <m:VBox
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="Main Category" />
+                    <m:Text text="{products>MainCategory}" />
+                </m:VBox>
+                <m:VBox
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="Subcategory" />
+                    <m:Text text="{products>Category}" />
+                </m:VBox>
+                <m:VBox
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="Price" />
+                    <m:ObjectNumber
+                        number="{products>CurrencyCode} {products>Price}"
+                        emphasized="false"
+                    />
+                </m:VBox>
+
+
+            </m:FlexBox>
+            
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection title="General Information">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <form:SimpleForm
+                                maxContainerCols="2"
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                labelSpanL="12"
+                                labelSpanM="12"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                columnsL="1"
+                                columnsM="1"
+                            >
+                                <form:content>
+                                    <m:Label text="Product ID" />
+                                    <m:Text text="{products>ProductId}" />
+                                    <m:Label text="Status" />
+                                    <m:Text text="{products>Status}" />
+                                    <m:Label text="Quantity" />
+                                    <m:Text text="{products>Quantity}" />
+                                </form:content>
+                                            
+                   
+                            </form:SimpleForm>
+                    			<m:Panel headerText="Stock On Hand" class="sapUiSmallMarginBottom">
+							<microchart:RadialMicroChart size="M" percentage="{products>SOH}" press="press" class="sapUiSmallMargin"></microchart:RadialMicroChart>
+				<m:HBox class="sapUiSmallMarginTop">
+				</m:HBox>
+			</m:Panel>
+                        </blocks>
+
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection>
+                <ObjectPageSubSection>
+            <m:FlexBox >
+            <m:VBox>
+                        <m:Title text="Gap Buster"/>
+                    <microchart:AreaMicroChart
+                        size="Auto"
+                        minXValue="0"
+                        maxXValue="100"
+                        minYValue="0"
+                        maxYValue="100"
+                        class="sapUiSmallMargin"
+                        press="press"
+                    >
+                        <microchart:firstXLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="June 1"
+                                color="Good"
+                            />
+                        </microchart:firstXLabel>
+                        <microchart:lastXLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="June 30"
+                                color="Critical"
+                            />
+                        </microchart:lastXLabel>
+                        <microchart:firstYLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="0M"
+                                color="Good"
+                            />
+                        </microchart:firstYLabel>
+                        <microchart:lastYLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="80M"
+                                color="Critical"
+                            />
+                        </microchart:lastYLabel>
+                        <microchart:chart>
+                            <microchart:AreaMicroChartItem>
+                                <microchart:points>
+                                    <microchart:AreaMicroChartPoint
+                                        x="{products>X1}"
+                                        y="{products>Y1}"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="{products>X2}"
+                                        y="{products>Y2}"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="{products>X3}"
+                                        y="{products>Y3}"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="{products>X4}"
+                                        y="{products>Y4}"
+                                    />
+                                </microchart:points>
+                            </microchart:AreaMicroChartItem>
+                        </microchart:chart>
+                    </microchart:AreaMicroChart>
+                    </m:VBox>
+                    <m:VBox wrap="Wrap" fitContainer="true">
+                    <m:Title text="Daily Gap"/>
+                    <microchart:AreaMicroChart
+                        size="Auto"
+                        minXValue="0"
+                        maxXValue="100"
+                        minYValue="0"
+                        maxYValue="100"
+                        class="sapUiSmallMargin"
+                        press="press"
+                    >
+                        <microchart:firstXLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="9am"
+                                color="Good"
+                            />
+                        </microchart:firstXLabel>
+                        <microchart:lastXLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="9pm"
+                                color="Critical"
+                            />
+                        </microchart:lastXLabel>
+                        <microchart:firstYLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="0M"
+                                color="Good"
+                            />
+                        </microchart:firstYLabel>
+                        <microchart:lastYLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="80M"
+                                color="Critical"
+                            />
+                        </microchart:lastYLabel>
+                        <microchart:chart>
+                            <microchart:AreaMicroChartItem>
+                                <microchart:points>
+                                    <microchart:AreaMicroChartPoint
+                                        x="0"
+                                        y="0"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="30"
+                                        y="60"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="60"
+                                        y="20"
+                                    />
+                                </microchart:points>
+                            </microchart:AreaMicroChartItem>
+                        </microchart:chart>
+                    </microchart:AreaMicroChart>
+                    </m:VBox>
+                    <m:VBox >
+                    <m:Title text="7 Day Gap"/>
+                    <microchart:AreaMicroChart
+                        size="Auto"
+                        minXValue="0"
+                        maxXValue="100"
+                        minYValue="0"
+                        maxYValue="100"
+                        class="sapUiSmallMargin"
+                        press="press"
+                    >
+                        <microchart:firstXLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="Day 1"
+                                color="Good"
+                            />
+                        </microchart:firstXLabel>
+                        <microchart:lastXLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="Day 7"
+                                color="Critical"
+                            />
+                        </microchart:lastXLabel>
+                        <microchart:firstYLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="0M"
+                                color="Good"
+                            />
+                        </microchart:firstYLabel>
+                        <microchart:lastYLabel>
+                            <microchart:AreaMicroChartLabel
+                                label="80M"
+                                color="Critical"
+                            />
+                        </microchart:lastYLabel>
+                        <microchart:chart>
+                            <microchart:AreaMicroChartItem>
+                                <microchart:points>
+                                    <microchart:AreaMicroChartPoint
+                                        x="0"
+                                        y="0"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="15"
+                                        y="30"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="50"
+                                        y="40"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="60"
+                                        y="20"
+                                    />
+                                    <microchart:AreaMicroChartPoint
+                                        x="100"
+                                        y="80"
+                                    />
+                                </microchart:points>
+                            </microchart:AreaMicroChartItem>
+                        </microchart:chart>
+                    </microchart:AreaMicroChart>
+                    </m:VBox>
+            </m:FlexBox>
+                </ObjectPageSubSection>
+            </ObjectPageSection>
+            <ObjectPageSection title="Suppliers">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <m:Table
+                                id="suppliersTable"
+                                items="{path : 'products>/ProductCollectionStats/Filters/1/values'}"
+                            >
+                                <m:columns>
+                                    <m:Column />
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem type="Navigation">
+                                        <m:cells>
+                                            <m:ObjectIdentifier
+                                                text="{products>text}"
+                                            />
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+
+        <footer>
+            <m:OverflowToolbar>
+                <m:ToolbarSpacer />
+                <m:Button
+                    type="Accept"
+                    text="Save"
+                />
+                <m:Button
+                    type="Reject"
+                    text="Cancel"
+                />
+            </m:OverflowToolbar>
+        </footer>
+    </ObjectPageLayout>
+</mvc:View>

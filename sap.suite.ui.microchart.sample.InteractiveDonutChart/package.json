@@ -1,0 +1,13 @@
+{
+  "name": "sap-suite-ui-microchart-sample--interactive-donut-chart",
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "Sample: Interactive Donut Charts in Flexbox",
+  "scripts": {
+    "start": "ui5 serve",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3"
+  }
+}

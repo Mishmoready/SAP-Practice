@@ -1,0 +1,41 @@
+<mvc:View
+    controllerName="sap.ui5.shelfReplenishmentReport.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+>
+    <Shell>
+        <App class="ShReReStyle">
+            <pages>
+                <Page
+                    title="{i18n>appTitle}"
+                    showHeader="false"
+                >
+                    <headerContent>
+                        <Button
+                            icon="sap-icon://hello-world"
+                            press=".onOpenDialog"
+                        />
+                    </headerContent>
+                    <content>
+                        <VBox>
+                            <mvc:XMLView
+                                viewName="sap.ui5.shelfReplenishmentReport.view.SearchShReRe"
+                            />
+                            <mvc:XMLView
+                                viewName="sap.ui5.shelfReplenishmentReport.view.DynamicPageListReport"
+                            />
+                            <HBox fitContainer="false">
+                                <mvc:XMLView
+                                    viewName="sap.ui5.shelfReplenishmentReport.view.CardsLayout"
+                                />
+                                <mvc:XMLView
+                                    viewName="sap.ui5.shelfReplenishmentReport.view.Pie"
+                                />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

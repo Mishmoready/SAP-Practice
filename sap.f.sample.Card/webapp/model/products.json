@@ -1,0 +1,74 @@
+{
+    "productItems": [
+        {
+            "title": "Spaghetti Squash",
+            "subtitle": "ID33442267-S01",
+            "stockAvailable": 315,
+            "status": "warning",
+            "statusSchema": "Warning"
+        },
+        {
+            "title": "Roma Tomatoes",
+            "subtitle": "ID27896532-T08",
+            "stockAvailable": 589,
+            "status": "ok",
+            "statusSchema": "Success"
+        },
+        {
+            "title": "Baby Spinach",
+            "subtitle": "ID12568544-S15",
+            "stockAvailable": 865,
+            "status": "ok",
+            "statusSchema": "Success"
+        },
+        {
+            "title": "Atlantic Salmon",
+            "subtitle": "ID83434521-S12",
+            "stockAvailable": 98,
+            "status": "low",
+            "statusSchema": "Error"
+        },
+        {
+            "title": "Manuka Honey",
+            "subtitle": "ID59223458-H09",
+            "stockAvailable": 200,
+            "status": "warning",
+            "statusSchema": "Warning"
+        },
+        {
+            "title": "Gala Apples",
+            "subtitle": "ID98156783-A53",
+            "stockAvailable": 640,
+            "status": "ok",
+            "statusSchema": "Success"
+        },
+        {
+            "title": "Valencia Oranges",
+            "subtitle": "ID67278988-O21",
+            "stockAvailable": 450,
+            "status": "ok",
+            "statusSchema": "Success"
+        },
+        {
+            "title": "Cage Free Eggs",
+            "subtitle": "ID54789876-E30",
+            "stockAvailable": 120,
+            "status": "warning",
+            "statusSchema": "Warning"
+        },
+        {
+            "title": "Whole Grain Rice",
+            "subtitle": "ID23345659-R76",
+            "stockAvailable": 380,
+            "status": "warning",
+            "statusSchema": "Warning"
+        },
+        {
+            "title": "Alaskan Pollock",
+            "subtitle": "ID11856728-F22",
+            "stockAvailable": 50,
+            "status": "low",
+            "statusSchema": "Error"
+        }
+    ]
+}

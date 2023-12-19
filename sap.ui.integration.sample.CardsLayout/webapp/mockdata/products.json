@@ -1,0 +1,47 @@
+[
+    {
+        "product": "B/BOYS PEPPERMINT SLICE EA",
+        "salesOrder": "1120927",
+        "customerName": "Baker Boys Limited",
+        "netAmount": "2K USD",
+        "status": "Empty",
+        "statusState": "Error",
+        "deliveryProgress": 0
+    },
+    {
+        "product": "SAN REMO PENNE #18 500G",
+        "salesOrder": "1021986",
+        "customerName": "Distribution Centre",
+        "netAmount": "127k USD",
+        "status": "Critical",
+        "statusState": "Error",
+        "deliveryProgress": 5
+    },
+    {
+        "product": "BARILLA GLUTEN FREE ELBOWS 340G",
+        "salesOrder": "1341847",
+        "customerName": "James Crisp Cardinal",
+        "netAmount": "8K USD",
+        "status": "Critical",
+        "statusState": "Error",
+        "deliveryProgress": 15
+    },
+    {
+        "product": "DIAMOND G/F PASTA LASAGNE SHEETS 200G",
+        "salesOrder": "5218361",
+        "customerName": "Distribution Centre",
+        "netAmount": "25K USD",
+        "status": "Low",
+        "statusState": "Warning",
+        "deliveryProgress": 25
+    },
+    {
+        "product": "PAMS TOMATO PASTE 150G",
+        "salesOrder": "1138894",
+        "customerName": "Distribution Centre",
+        "netAmount": "7K USD",
+        "status": "Low",
+        "statusState": "Warning",
+        "deliveryProgress": 30
+    }
+]
